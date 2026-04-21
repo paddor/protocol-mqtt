@@ -1,5 +1,13 @@
 # Changelog
 
+## v0.1.1 — 2026-04-22
+
+- Load packet subclasses from `protocol/mqtt.rb` (the entry point)
+  instead of from the bottom of `packet.rb`. Each subclass's
+  `require_relative "../packet"` no longer triggers the
+  "loading in progress, circular require considered harmful"
+  warning on load. Pure refactor; no behavior change.
+
 ## v0.1.0 — 2026-04-20
 
 - First release. Pure-Ruby codec and connection layer for MQTT

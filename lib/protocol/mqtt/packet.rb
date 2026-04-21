@@ -107,19 +107,6 @@ module Protocol
   end
 end
 
-# Require all packet subclasses so their TYPE_IDs register.
-require_relative "packet/connect"
-require_relative "packet/connack"
-require_relative "packet/publish"
-require_relative "packet/puback"
-require_relative "packet/pubrec"
-require_relative "packet/pubrel"
-require_relative "packet/pubcomp"
-require_relative "packet/subscribe"
-require_relative "packet/suback"
-require_relative "packet/unsubscribe"
-require_relative "packet/unsuback"
-require_relative "packet/pingreq"
-require_relative "packet/pingresp"
-require_relative "packet/disconnect"
-require_relative "packet/auth"
+# Packet subclasses are loaded from protocol/mqtt.rb after this file
+# finishes, so they can +require_relative "../packet"+ without
+# triggering circular-require warnings.
